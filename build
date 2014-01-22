@@ -1,5 +1,7 @@
 #!/bin/sh
 
+set -e
+
 version=2.3.3
 icecastversion=icecast-$version
 icecastsrc=$icecastversion.tar.gz
@@ -24,7 +26,7 @@ fpm -s dir -t deb -n icecast2 -v $version -C root \
    .
 }
 
-sudo apt-get install libtheora-dev libogg-dev libcurl4-openssl-dev libxslt-dev libxml2-dev libssl-dev cdbs dh-buildinfo automake1.10 libcurl4-gnutls-dev devscripts
+sudo apt-get install libtheora-dev libogg-dev libxslt-dev libxml2-dev libssl-dev cdbs dh-buildinfo automake1.10 libcurl4-gnutls-dev devscripts
 
 if [ ! -f $icecastsrc ]; then
     wget -q http://downloads.xiph.org/releases/icecast/$icecastsrc
