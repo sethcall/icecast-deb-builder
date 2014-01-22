@@ -44,7 +44,7 @@ chown -R icecast:icecast /usr/share/icecast2
 # let icecast group members read/write/delete the config file
 chmod 774 /etc/icecast2
 chmod 774 /etc/icecast2/icecast.xml 
-chmod 774 /var/log/logcast2
+chmod 774 /var/log/icecast2
 
 chmod a+x /etc/init.d/icecast2
 
