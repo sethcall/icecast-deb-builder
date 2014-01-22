@@ -26,7 +26,7 @@ fpm -s dir -t deb -n icecast2 -v $version -C root \
    .
 }
 
-sudo apt-get -y install libtheora-dev libogg-dev libxslt-dev libxml2-dev libssl-dev cdbs dh-buildinfo automake1.10 libcurl4-gnutls-dev devscripts
+sudo apt-get -y install libtheora-dev libogg-dev libxslt-dev libxml2-dev libssl-dev cdbs dh-buildinfo automake1.10 libcurl4-gnutls-dev devscripts libvorbis-dev
 
 if [ ! -f $icecastsrc ]; then
     wget -q http://downloads.xiph.org/releases/icecast/$icecastsrc
