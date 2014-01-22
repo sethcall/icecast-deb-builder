@@ -35,6 +35,8 @@ if ! id icecast >/dev/null 2>&1; then
 	--home /usr/share/icecast2 --no-create-home --group icecast
 fi
 
+mkdir /var/log/icecast2
+
 chown -R icecast2:icecast /etc/icecast2
 chown -R icecast2:icecast /var/log/icecast2
 chown -R icecast2:icecast /usr/share/icecast2
@@ -42,6 +44,7 @@ chown -R icecast2:icecast /usr/share/icecast2
 # let icecast group members read/write/delete the config file
 chmod 774 /etc/icecast2
 chmod 774 /etc/icecast2/icecast.xml 
+chmod 774 /var/log/logcast2
 
 chmod a+x /etc/init.d/icecast2
 
