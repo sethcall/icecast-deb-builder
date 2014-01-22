@@ -1,0 +1,51 @@
+#!/bin/sh
+
+version=2.3.3
+icecastversion=icecast-$version
+icecastsrc=$icecastversion.tar.gz
+checksum=2b5d1b40778922e5f6431b7758c359ad
+destdir=/tmp/install-icecast-$version
+
+package() {
+fpm -s dir -t deb -n icecast2 -v $version -C root \
+  --after-install  icecast2.postinst \
+  --before-install icecast2.preinst \
+  --after-remove icecast2.postrm \
+  -p icecast-VERSION_ARCH.deb \
+  -d "libvorbis0a" \
+  -d "libogg0" \
+  -d "curl" \
+  -d "libxml2" \
+  -d "libxslt1.1" \
+  -d "libtheora0" \
+  -d "libvorbisenc2" \
+  -d "vorbis-tools" \
+  -d "speex" \
+   .
+}
+
+sudo apt-get install libtheora-dev libogg-dev libcurl4-openssl-dev libxslt-dev libxml2-dev libssl-dev cdbs dh-buildinfo automake1.10 libcurl4-gnutls-dev devscripts
+
+if [ ! -f $icecastsrc ]; then
+    wget -q http://downloads.xiph.org/releases/icecast/$icecastsrc
+fi
+
+if [ "$(md5sum $icecastsrc | cut -b1-32)" != "$checksum" ]; then
+  echo "Checksum mismatch!"
+  exit 1
+fi
+
+rm -rf $destdir
+
+echo "Unpacking $icecastsrc"
+tar -xvzf $icecastsrc
+cd $icecastversion
+./configure && make
+cd ..
+mkdir -p root/usr/local/bin
+
+cp icecast-2.3.3/src/icecast root/usr/local/bin/icecast2
+
+gem list -i fpm || sudo gem install fpm
+
+package
