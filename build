@@ -9,7 +9,7 @@ checksum=2b5d1b40778922e5f6431b7758c359ad
 destdir=/tmp/install-icecast-$version
 
 package() {
-fpm -s dir -t deb -n icecast2 -v $version -C root \
+fpm -s dir -t deb -n icecast233 -v $version -C root \
   --after-install  icecast2.postinst \
   --before-install icecast2.preinst \
   --after-remove icecast2.postrm \
