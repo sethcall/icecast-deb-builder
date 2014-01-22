@@ -35,7 +35,7 @@ if ! id icecast >/dev/null 2>&1; then
 	--home /usr/share/icecast2 --no-create-home --group icecast
 fi
 
-mkdir /var/log/icecast2
+mkdir -p /var/log/icecast2
 
 chown -R icecast2:icecast /etc/icecast2
 chown -R icecast2:icecast /var/log/icecast2
