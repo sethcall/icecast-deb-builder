@@ -39,8 +39,9 @@ chown -R icecast2:icecast /etc/icecast2
 chown -R icecast2:icecast /var/log/icecast2
 chown -R icecast2:icecast /usr/share/icecast2
 
-# let icecast group members touch the config file
-chmod 664 /etc/icecast2/icecast.xml 
+# let icecast group members read/write/delete the config file
+chmod 774 /etc/icecast2
+chmod 774 /etc/icecast2/icecast.xml 
 
 chmod a+x /etc/init.d/icecast2
 
