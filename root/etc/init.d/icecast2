@@ -37,7 +37,7 @@ set -e
 case "$1" in
   start)
 	echo -n "Starting $DESC: "
-	start-stop-daemon --start --quiet --chuid $USERID:$GROUPID \
+	start-stop-daemon --start --quiet --oknodo --chuid $USERID:$GROUPID \
 		--background --exec $DAEMON -- -c $CONFIGFILE
 	echo "$NAME."
 	;;
