@@ -42,8 +42,8 @@ chown -R icecast:icecast /var/log/icecast2
 chown -R icecast:icecast /usr/share/icecast2
 
 # let icecast group members read/write/delete the config file
-chmod 776 /etc/icecast2    # remove when god is fixed for suppl groups
-chmod 776 /etc/icecast2/icecast.xml  # remove when god is fixed for suppl groups
+chmod 777 /etc/icecast2    # remove when god is fixed for suppl groups
+chmod 777 /etc/icecast2/icecast.xml  # remove when god is fixed for suppl groups
 chmod 774 /var/log/icecast2
 
 chmod a+x /etc/init.d/icecast2
