@@ -53,7 +53,7 @@ case "$1" in
   restart)
 	echo -n "Restarting $DESC: "
 	start-stop-daemon --stop --oknodo --quiet --exec $DAEMON
-	sleep 1
+	sleep 3
 	start-stop-daemon --start --quiet --chuid $USERID:$GROUPID \
 		--background --exec $DAEMON -- -c $CONFIGFILE
 	echo "$NAME."
