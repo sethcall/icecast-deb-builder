@@ -2,14 +2,14 @@
 
 set -e
 
-version=2.3.3
+version=2.4.1
 icecastversion=icecast-$version
 icecastsrc=$icecastversion.tar.gz
-checksum=2b5d1b40778922e5f6431b7758c359ad
+checksum=b1402712a79734d4720c8fe15fd9fb10
 destdir=/tmp/install-icecast-$version
 
 package() {
-fpm -s dir -t deb -n icecast233 -v $version -C root \
+fpm -s dir -t deb -n icecast241 -v $version -C root \
   --after-install  icecast2.postinst \
   --before-install icecast2.preinst \
   --after-remove icecast2.postrm \
@@ -46,7 +46,7 @@ cd $icecastversion
 cd ..
 mkdir -p root/usr/local/bin
 
-cp icecast-2.3.3/src/icecast root/usr/local/bin/icecast2
+cp icecast-${version}/src/icecast root/usr/local/bin/icecast2
 
 gem list -i fpm || sudo gem install fpm
 
