@@ -28,7 +28,7 @@ fpm -s dir -t deb -n icecast250 -v $version -C root \
 
 sudo apt-get -y install libtheora-dev libogg-dev libxslt-dev libxml2-dev libssl-dev cdbs dh-buildinfo automake1.10 libcurl4-gnutls-dev devscripts libvorbis-dev
 
-function from_tar() {
+from_tar() {
 
 if [ ! -f $icecastsrc ]; then
     wget -q http://downloads.xiph.org/releases/icecast/$icecastsrc
@@ -51,7 +51,7 @@ mkdir -p root/usr/local/bin
 cp icecast-${version}/src/icecast root/usr/local/bin/icecast2
 }
 
-function from_source() {
+from_source() {
 
 git clone --recursive https://git.xiph.org/icecast-server.git
 cd icecast-server
