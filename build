@@ -52,7 +52,7 @@ cp icecast-${version}/src/icecast root/usr/local/bin/icecast2
 }
 
 from_source() {
-
+rm -rf icecast-server
 git clone --recursive https://git.xiph.org/icecast-server.git
 cd icecast-server
 ./autogen.sh
